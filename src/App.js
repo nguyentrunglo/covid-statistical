@@ -29,11 +29,11 @@ function App() {
     },[]);
 
     const pinTopData = data.find(item => item.country === PIN_TOP_COUNTRY);
-    const dataFilter = useMemo(() => searchInput ? [...data].filter(item => item.country.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1)
-    : [...data].sort((a,b) => (a.cases < b.cases) ? 1 : ((b.cases < a.cases) ? -1 : 0)).slice(0,10),[searchInput, data]);
-    const deathStatical = data.reduce((a, b) => a + b.deaths, 0);
-    const recoverStatical = data.reduce((a, b) => a + b.recovered, 0);
-    const caseStatical = data.reduce((a, b) => a + b.cases, 0);
+    const dataFilter = searchInput ? [...data].filter(item => item.country.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1)
+    : [...data].sort((a,b) => (a.cases < b.cases) ? 1 : ((b.cases < a.cases) ? -1 : 0)).slice(0,10);
+    const deathStatical = useMemo(() => data.reduce((a, b) => a + b.deaths, 0), [data]);
+    const recoverStatical = useMemo(()=> data.reduce((a, b) => a + b.recovered, 0), [data]);
+    const caseStatical = useMemo(() => data.reduce((a, b) => a + b.cases, 0), [data]);
     return (
         <div className="max-w-md m-auto px-4 bg-gray-100 py-8">
             <CovidStatistical 
