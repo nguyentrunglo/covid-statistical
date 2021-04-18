@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import CovidStatistical from './component/CovidStatistical';
-import SearchInput from './component/SearchInput';
+import CovidStatistical from './component/Statistical/CovidStatistical';
+import SearchInput from './component/Input/SearchInput';
 import axios from 'axios';
-import ListCountry from './component/ListCountry';
+import ListCountry from './component/ListCountry/ListCountry';
 
 const TIMER = 3*60*100;
 const PIN_TOP_COUNTRY = 'Vietnam';

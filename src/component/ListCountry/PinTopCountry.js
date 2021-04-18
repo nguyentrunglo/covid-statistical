@@ -1,6 +1,6 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
-import { DateTimeUtil } from './utils/index';
+import { DateTimeUtil } from '../../utils/index';
 
 function PinTopCountry(props) {
     const { pinTopData } = props;
